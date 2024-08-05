@@ -1,5 +1,5 @@
 # Objective
-The idea of this project is to create a fuzzy finder binary for use in vim, shell and other possibilities.
+The idea of this project is to create a fuzzy finder binary for use in vim, shell and other programs.
 
 # Methodology
 - We will recursively expand the file system direcotries and insert all contents into a TRIE or PATRICIA tree, so that the files can be efficiently searched by the start of their name.
