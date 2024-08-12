@@ -1,8 +1,8 @@
 use std::io::{Read, Write};
 
 //serial file table format. plain binary file containing an array of structures
-const FTE_NAME_SIZE: usize = 128;
-const FTE_FULL_PATH_SIZE: usize = 256;
+pub const FTE_NAME_SIZE: usize = 128;
+pub const FTE_FULL_PATH_SIZE: usize = 256;
 pub struct FileTableEntry {
     pub name: [u8; FTE_NAME_SIZE], //we need fixed size data to make our life easier
     pub full_path: [u8; FTE_FULL_PATH_SIZE], //bigger size. you never know
