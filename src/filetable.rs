@@ -1,7 +1,6 @@
 use std::io::{Read, Write};
 
 //serial file table format. plain binary file containing an array of structures
-//This is rust being coded by a mainly C developer lol. forgive my language
 const FTE_NAME_SIZE: usize = 128;
 const FTE_FULL_PATH_SIZE: usize = 256;
 pub struct FileTableEntry {
