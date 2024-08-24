@@ -96,3 +96,26 @@ pub fn insert_trie(tree: &mut Vec<TreeNode>, key: String, path: String) {
         }
     }
 }
+
+//each initial u8 value becomes ID ranked from 0 to 26
+//alphabet reduction helps keep trie size small, as we only need to store 27 values with 5 bits
+//values,however, are stored as-is for comparsion purposes 
+//some values might replace others but this heuristic is acceptable
+pub fn optimize_trie_key(key: String) -> String {
+    let optimized_key = key.chars().map(|c| {
+        let mut new_c = c as u8;
+        if c.is_alphabetic() {
+            if c.is_uppercase() {
+                new_c -= 65;
+            } else {
+                new_c -= 97;
+            }
+        } else {
+            new_c = 31 //top of 5bit representation mapped as * invalid char
+        }
+        return new_c as char;
+    }).collect();
+
+    return optimized_key;
+
+}
