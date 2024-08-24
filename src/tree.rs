@@ -45,7 +45,7 @@ pub fn write_tree_to_file(tree: Vec<TreeNode>, path: &str) {
 }
 
 pub fn read_tree_from_file(path: &str) -> Vec<TreeNode> {
-    let mut file = match std::fs::File::open(path) {
+    let file = match std::fs::File::open(path) {
         Ok(file) => file,
         Err(e) => panic!("Failed to open file: {}", e),
     };
