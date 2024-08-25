@@ -44,10 +44,10 @@ pub fn write_tree_to_file(tree: Vec<TreeNode>, path: &str) {
     }
 }
 
-pub fn read_tree_from_file(path: &str) -> Vec<TreeNode> {
+pub fn read_tree_from_file(path: &str) -> Option<Vec<TreeNode>> {
     let file = match std::fs::File::open(path) {
         Ok(file) => file,
-        Err(e) => panic!("Failed to open file: {}", e),
+        Err(e) => return None,
     };
 
     let mut byte_count = 0;
@@ -73,5 +73,5 @@ pub fn read_tree_from_file(path: &str) -> Vec<TreeNode> {
 
         byte_count += 1;
     });
-    return tree;
+    return Some(tree);
 }

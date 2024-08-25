@@ -16,6 +16,7 @@ pub fn search_trie(tree: &Vec<TreeNode>, key: &str) -> Vec<String> {
         let current_node = &tree[vec_index];
         let left_child = 2 * vec_index + 1;
         let right_child = 2 * vec_index + 2;
+        println!("Value: {:?}", current_node.value);
 
         //if we traverse non empty value, add to list
         if current_node.value[0] !=  TRIE_KEY_EMPTY as u8 {
@@ -155,8 +156,10 @@ pub fn insert_trie(tree: &mut Vec<TreeNode>, key: String, path: String) {
                         child = old_node_copy;
                     }
 
-                    //Write assigned parent into parent position
-                    *old_node = parent;
+                    //Write assigned parent into parent position (this is better than writing whole
+                    // node for some reason)
+                    old_node.value = parent.value;
+                    old_node.path = parent.path;
 
                     //determine child position
                     let desired_position: usize;
