@@ -121,6 +121,9 @@ pub fn insert_trie(tree: &mut Vec<TreeNode>, key: String, path: String) {
                         key_bit_index = 0;
                         key_byte_index += 1;
                     }
+                    if key_byte_index == TREE_NODE_VALUE_SIZE - 1 {
+                        break;
+                    }
                 }
 
                 let old_node = tree.get_mut(vec_index).unwrap();
